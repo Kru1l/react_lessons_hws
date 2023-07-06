@@ -1,0 +1,16 @@
+.member {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.member > h3 {
+    border-bottom: 2px solid black;
+    text-align: center;
+}
+
+.member > img {
+    width: 30vw;
+    /*height: 30vw;*/
+    border-radius: 15px;
+}
