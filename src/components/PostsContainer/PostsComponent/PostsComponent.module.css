@@ -1,0 +1,30 @@
+.wrap {
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+
+    background: silver;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 10px;
+    margin-top: 15px;
+}
+
+.wrap > p {
+    margin: 5px 0;
+}
+
+.wrap > button {
+    background: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-top: 5px;
+    transition: 1s;
+}
+
+.wrap > button:hover {
+    background: black;
+    color: white;
+    transition: 1s;
+
+}
