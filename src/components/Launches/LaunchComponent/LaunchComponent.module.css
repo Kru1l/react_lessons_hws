@@ -1,0 +1,31 @@
+.launch {
+    width: 50vw;
+    height: 60vh;
+    /*max-height: 80vh;*/
+    display: flex;
+    flex-flow: column;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    align-items: center;
+
+    background: silver;
+    border: 2px solid black;
+    border-radius: 15px;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.launch > h1 {
+    margin: 5px 0;
+    text-align: center;
+    border-bottom: 2px solid black;
+}
+
+.launch > p {
+    margin: 5px 0 50px;
+    font-weight: 500;
+}
+
+.launch > img {
+    height: 21vw;
+}
