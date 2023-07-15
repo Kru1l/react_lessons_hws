@@ -1,15 +1,20 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import styles from './UserComp.module.css';
-import UserDetails from "./UserChildren/UserDetails";
-import UserAddress from "./UserChildren/UserAddress";
-import UserCompany from "./UserChildren/UserCompany";
+import {UsersContext} from "../UsersContainer";
 
-const UserComp = ({user}) => {
+
+const UserComp = () => {
+    const {users} = useContext(UsersContext);
+    // console.log(UsersContext.users);
+
     return (
         <div className={styles.UserComp}>
-            <UserDetails user={user}/>
-            <UserAddress userAddress={user.address}/>
-            <UserCompany userCompany={user.company}/>
+            {/*{users?.map(user => {*/}
+            {/*    return (*/}
+            {/*    console.log(user)*/}
+            {/*    )*/}
+            {/*})}*/}
+
         </div>
     );
 };
