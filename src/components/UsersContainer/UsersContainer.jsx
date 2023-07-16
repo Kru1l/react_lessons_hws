@@ -1,7 +1,5 @@
-import React, {createContext, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import UserComp from "./UserComp/UserComp";
-
-export const UsersContext = createContext(null);
 
 const UsersContainer = () => {
     const [users, setUsers] = useState([]);
@@ -14,12 +12,11 @@ const UsersContainer = () => {
 
     return (
         <>
-            <UsersContext.Provider value={users}>
-
-                <UserComp/>
-
-            </UsersContext.Provider>
-
+            {users?.map(user => {
+                return (
+                    <UserComp key={user.id} user={user}/>
+                )
+            })}
         </>
     );
 };

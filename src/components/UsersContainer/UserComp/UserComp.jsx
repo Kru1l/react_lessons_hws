@@ -1,22 +1,23 @@
-import React, {useContext} from 'react';
+import React, {useState} from 'react';
 import styles from './UserComp.module.css';
-import {UsersContext} from "../UsersContainer";
+import UserPosts from "./UserPosts/UserPosts";
 
 
-const UserComp = () => {
-    const {users} = useContext(UsersContext);
-    // console.log(UsersContext.users);
+const UserComp = ({user}) => {
+    const {id, name} = user;
+    const [isShow, setIsShow] = useState(false);
 
     return (
         <div className={styles.UserComp}>
-            {/*{users?.map(user => {*/}
-            {/*    return (*/}
-            {/*    console.log(user)*/}
-            {/*    )*/}
-            {/*})}*/}
+            <h3>User ID: {id}</h3>
+            <h3>Name: {name}</h3>
+            <button onClick={() => setIsShow(prev => !prev)}>
+                {isShow ? 'Hide' : 'Get Posts'}
+            </button>
+
+            {isShow && <UserPosts user={user}/>}
 
         </div>
     );
-};
-
+}
 export default UserComp;
