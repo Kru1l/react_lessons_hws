@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import UserComponent from "./UserComponent/UserComponent";
 
-const UsersComp = () => {
+const UsersComp = ({onSave}) => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
@@ -9,7 +9,7 @@ const UsersComp = () => {
             .then(res => res.json())
             .then(users => setUsers(users))
             .catch()
-    }, [])
+    }, [onSave])
 
     return (
         <div>

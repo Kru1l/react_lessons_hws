@@ -5,10 +5,10 @@ const UserComponent = ({user}) => {
 
     return (
         <div className={styles.wrap}>
-            <p>{id}</p>
-            <p>{name}</p>
-            <p>{username}</p>
-            <p>{email}</p>
+            <p>ID: {id}</p>
+            <p>Name: {name}</p>
+            <p>Username: {username}</p>
+            <p>Email: {email}</p>
         </div>
     );
 };
