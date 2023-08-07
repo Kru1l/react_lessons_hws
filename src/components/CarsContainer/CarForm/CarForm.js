@@ -55,6 +55,8 @@ const CarForm = ({setOnSave, setCarForUpdate, carForUpdate}) => {
         }).catch()
     }
 
+    // console.log(errors);
+
     return (
         <div>
             <form className={styles.form}
@@ -66,7 +68,7 @@ const CarForm = ({setOnSave, setCarForUpdate, carForUpdate}) => {
                         // pattern: /^[a-zA-Zа-яА-яёЁіІїЇ]{1,20}$/
                     })}/>
                 </label>
-                {errors.brand && <span>This field is required</span>}
+                {errors.brand && <span>{errors.brand.message}</span>}
 
                 <label>
                     <input type="text" placeholder={'Price'} {...register('price', {
@@ -86,7 +88,7 @@ const CarForm = ({setOnSave, setCarForUpdate, carForUpdate}) => {
                         // max: new Date().getFullYear()
                     })}/>
                 </label>
-                {errors.year && <span>This field is required</span>}
+                {errors.year && <span>{errors.year.message}</span>}
 
                 <button disabled={!isValid} className={styles.button}>
                     {carForUpdate ? 'Update' : 'Save'}
