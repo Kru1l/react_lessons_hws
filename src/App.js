@@ -10,6 +10,3 @@ function App() {
 }
 
 export default App;
-
-//     http://owu.linkpc.net/carsAPI/v1/doc
-//         Реалізувати створення, видалення та оновлення машин

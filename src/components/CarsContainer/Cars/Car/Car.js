@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styles from './Car.module.css'
+import {apiCalls} from "../../../../services/apiCalls";
 
 const Car = ({car, setOnSave, setCarForUpdate}) => {
     const {id, brand, price, year} = car;
@@ -10,10 +11,13 @@ const Car = ({car, setOnSave, setCarForUpdate}) => {
     //     year: null
     // })
 
-    const handleDelete = (data) => {
-        fetch(`http://owu.linkpc.net/carsAPI/v1/cars/${id}`, {method: 'DELETE'})
-            .then(() => setOnSave(prev => !prev))
-            .catch()
+    const handleDelete = () => {
+        // fetch(`http://owu.linkpc.net/carsAPI/v1/cars/${id}`,
+        //     {method: 'DELETE'})
+        //     .then(() => setOnSave(prev => !prev))
+        //     .catch()
+
+        apiCalls.deleteCar(setOnSave, id);
     }
 
     return (

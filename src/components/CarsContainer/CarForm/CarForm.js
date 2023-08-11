@@ -3,6 +3,7 @@ import styles from './CarForm.module.css'
 import {useForm} from "react-hook-form";
 import {joiResolver} from "@hookform/resolvers/joi";
 import {carFormValidator} from "../../../validators/carFormValidator";
+import {apiCalls} from "../../../services/apiCalls";
 import Joi from "joi";
 import car from "../Cars/Car/Car";
 
@@ -25,14 +26,16 @@ const CarForm = ({setOnSave, setCarForUpdate, carForUpdate}) => {
     // };
 
     const onSubmit = (data => {
-        fetch('http://owu.linkpc.net/carsAPI/v1/cars', {
-            headers: {'content-type': 'application/json'},
-            body: JSON.stringify(data),
-            method: 'POST'
-        }).then(() => {
-            setOnSave(prev => !prev)
-            reset()
-        }).catch()
+        // fetch('http://owu.linkpc.net/carsAPI/v1/cars', {
+        //     headers: {'content-type': 'application/json'},
+        //     body: JSON.stringify(data),
+        //     method: 'POST'
+        // }).then(() => {
+        //     setOnSave(prev => !prev)
+        //     reset()
+        // }).catch()
+
+        apiCalls.postCar(data, setOnSave, reset)
     })
 
     useEffect(() => {
@@ -44,15 +47,17 @@ const CarForm = ({setOnSave, setCarForUpdate, carForUpdate}) => {
     }, [carForUpdate]);
 
     const onUpdate = (car) => {
-        fetch(`http://owu.linkpc.net/carsAPI/v1/cars/${carForUpdate.id}`, {
-            headers: {'content-type': 'application/json'},
-            body: JSON.stringify(car),
-            method: 'PUT'
-        }).then(() => {
-            setOnSave(prev => !prev)
-            setCarForUpdate(null)
-            reset()
-        }).catch()
+        // fetch(`http://owu.linkpc.net/carsAPI/v1/cars/${carForUpdate.id}`, {
+        //     headers: {'content-type': 'application/json'},
+        //     body: JSON.stringify(car),
+        //     method: 'PUT'
+        // }).then(() => {
+        //     setOnSave(prev => !prev)
+        //     setCarForUpdate(null)
+        //     reset()
+        // }).catch()
+
+        apiCalls.updateCar(car, setOnSave, carForUpdate, setCarForUpdate, reset)
     }
 
     // console.log(errors);

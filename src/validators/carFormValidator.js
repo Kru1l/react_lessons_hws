@@ -7,14 +7,14 @@ const carFormValidator = Joi.object({
         'string.required': 'This field is required',
     }),
     price: Joi.number().required().min(0).max(1000000).messages({
-        'number.base': 'Only number',
         'number.required': 'This field is required',
+        'number.base': 'Only number',
         'number.min': 'Not less than 0',
         'number.max': 'Not more than 1000000'
     }),
     year: Joi.number().required().min(1990).max(new Date().getFullYear()).messages({
-        'number.base': 'Only number',
         'number.required': 'This field is required',
+        'number.base': 'Only number',
         'number.min': 'Only cars younger than 1990',
         'number.max': 'Impossible'
     })
